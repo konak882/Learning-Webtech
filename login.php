@@ -85,11 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($errCount < 1){
 
-        $strJsonFileContents = file_get_contents("data.json");
-        // var_dump($strJsonFileContents);
-
-        $arra = json_decode($strJsonFileContents);
-        // var_dump($arra);
         $user_found = false;
         foreach($arra as $item) { //foreach element in $arr
             //echo "<br>";
