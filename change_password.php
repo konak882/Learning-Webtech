@@ -1,33 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Lab 3 Change Pasasword Form</title>
-	<style>
-        body{
-            background: #eeeaea;
-          margin: auto;
-          width: 20%;
-            
-          border: 1px solid #3e3c3c;
-          padding: 20px;
-
-        }
-
-        .make-it-center{
-          margin: auto;
-          width: 75%;
-        }
-
-        .error{
-        	color: red;
-        }
-
-        .required:after {
-          content:"*";
-          color: red;
-        }
-    </style>
+	
 </head>
 <body>
 
@@ -89,13 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Change Password Code
             if ($errCount <= 0) {
                 if (!preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[\d%$#@]).+$/", $newPass)) {
-                    /*
-                      ^ starts the string
-                    (?=.*[a-z]) Atleast a lower case letter
-                    (?=.*[A-Z]) Atleast an upper case letter
-                    (?!.* ) no space
-                    (?=.*\d%$#@) Atleast a digit and atleast one of the specified characters.
-                    .{8,16} between 8 to 16 characters
+                16} between 8 to 16 characters
                       */
                     $newPassErr = "New Password must contain atleast a digit, a lower case and an upper case letter, atleast one of the [%$#@] and no space.";
                     $errCount = $errCount + 1;
@@ -141,22 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        if ($pass_change){
-            $final_data = json_encode($arra);
-            if(file_put_contents('data.json', $final_data)){
-                echo "<span style='color: green'>Password Changed Successfully!</span>";
-            }
-        }
-
-        if (!$user_found){
-            echo $userErr .= "No account found!";
-        }
-
-
-        //exit;
-
-    }
-
+    
 }
 
 
